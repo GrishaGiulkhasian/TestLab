@@ -1,76 +1,67 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import './Futer.css';
 
 export const Futer: React.FC = () => {
-//     const [name, setName] = useState<string>('');
-//     const [number, setNumber] = useState<string>('');
-//     const [loading, setLoading] = useState<boolean>(false);
-//     const [error, setError] = useState<string | null>(null);
-//     const [success, setSuccess] = useState<boolean>(false);
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [isChecked, setIsChecked] = useState(false);
 
-//     const handleSubmit = async (event: React.FormEvent) => {
-//         event.preventDefault();
-//         setLoading(true);
-//         setError(null);
-//         setSuccess(false);
-    
-//         try {
-//          const response = await axios.post('/api/send-message', { name, number });
-//           setSuccess(true);
-//           console.log('Response:', response.data);
-//         } catch (err) {
-//           setError('Failed to send message');
-//           console.error('Error:', err);
-//         } finally {
-//           setLoading(false);
-//         }
-//     };
+    const handleSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
 
-//     return (
-//         <form onSubmit={handleSubmit}>
-//           <div>
-//             <label htmlFor="name">Name:</label>
-//             <input
-//               type="text"
-//               id="name"
-//               value={name}
-//               onChange={(e) => setName(e.target.value)}
-//               required
-//             />
-//           </div>
-//           <div>
-//             <label htmlFor="number">Number:</label>
-//             <input
-//               type="text"
-//               id="number"
-//               value={number}
-//               onChange={(e) => setNumber(e.target.value)}
-//               required
-//             />
-//           </div>
-//           <button type="submit" disabled={loading}>
-//             {loading ? 'Sending...' : 'Send'}
-//           </button>
-//           {error && <p style={{ color: 'red' }}>{error}</p>}
-//           {success && <p style={{ color: 'green' }}>Message sent successfully!</p>}
-//         </form>
-//       );
-//     };
+        if (!isChecked) {
+            alert('Вы должны согласиться с условиями');
+            return;
+        }
 
-    return(
+        try {
+            const response = await axios.post('URL_СЕРВЕРА', {
+                name,
+                phone
+            });
+            console.log('Ответ сервера:', response.data);
+            alert('Форма успешно отправлена');
+        } catch (error) {
+            console.error('Ошибка при отправке формы:', error);
+            alert('Ошибка при отправке формы');
+        }
+    };
+
+    return (
         <div className="conteiner">
             <div className="forma">Отправь форму</div>
-            <div className="inputs1">
-                <input className="name" type="text" placeholder="Имя"/>
-                <input className="phone" type="number" pattern="[0-9]*" placeholder="Телефон"/>
-            </div>
-            <div className="inputs2">
-                <input className="chec" type='checkbox'/>
-                <div className="oke">Согласен, отказываюсь</div>  
-                <button className="btn10">Отправить</button>
-            </div> 
+            <form onSubmit={handleSubmit}>
+                <div className="inputs1">
+                    <input
+                        className="name"
+                        type="text"
+                        placeholder="Имя"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                    <input
+                        className="phone"
+                        type="number"
+                        pattern="[0-9]*"
+                        placeholder="Телефон"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                    />
+                </div>
+                <div className="inputs2">
+                    <input
+                        className="chec"
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={(e) => setIsChecked(e.target.checked)}
+                    />
+                    <div className="oke">Согласен, отказываюсь</div>
+                    <button className="btn10" type="submit">Отправить</button>
+                </div>
+            </form>
         </div>
     );
-}
+};
+
 export default Futer;
