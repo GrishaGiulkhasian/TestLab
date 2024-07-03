@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, forwardRef } from 'react';
 import './Accordion.css';
 
 interface AccordionItemProps {
@@ -35,7 +35,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, content }) => {
 };
 
 
-const Accordion: React.FC = () => {
+const Accordion= forwardRef<HTMLDivElement>((props, ref) => {
   const items = [
     {
       title: 'Подтверждено: сознание наших соотечественников не замутнено пропагандой?',
@@ -68,7 +68,7 @@ const Accordion: React.FC = () => {
   ];
 
   return (
-    <div className='container'>
+    <div ref={ref} className='container'>
     <div className="accordion">
       <h1>Вопросы и ответы</h1>
       {items.map((item, index) => (
@@ -77,6 +77,6 @@ const Accordion: React.FC = () => {
     </div>
     </div>
   );
-};
+});
 
 export default Accordion;

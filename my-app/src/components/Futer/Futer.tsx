@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import axios from 'axios';
 import './Futer.css';
 
-export const Futer: React.FC = () => {
+const Futer = forwardRef<HTMLDivElement>((props, ref) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [isChecked, setIsChecked] = useState(false);
@@ -29,7 +29,7 @@ export const Futer: React.FC = () => {
     };
 
     return (
-        <div className="conteiner">
+        <div ref={ref} className="conteiner">
             <div className="forma">Отправь форму</div>
             <form onSubmit={handleSubmit}>
                 <div className="inputs1">
@@ -56,12 +56,12 @@ export const Futer: React.FC = () => {
                         checked={isChecked}
                         onChange={(e) => setIsChecked(e.target.checked)}
                     />
-                    <div className="oke">Согласен, отказываюсь</div>
+                    <div className="oke">Согласен на предоставление данных</div>
                     <button className="btn10" type="submit">Отправить</button>
                 </div>
             </form>
         </div>
     );
-};
+});
 
 export default Futer;

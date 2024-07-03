@@ -9,7 +9,7 @@
     height: 100vh;
     background: 
         linear-gradient(rgba(15, 78, 196, 0.7), rgba(15, 78, 196, 0.7)),
-        url(../foto/back1.png) center no-repeat;
+        url(../../assets/back1.png) center no-repeat;
     background-size: cover;
     padding-top: 30px;
     position: relative;

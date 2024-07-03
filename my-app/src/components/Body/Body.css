@@ -46,25 +46,25 @@
 .curs_img {
     width: 72px;
     height: 72px;
-    background: url(../foto/waiting.png) center no-repeat;
+    background: url(../../assets/waiting.png) center no-repeat;
 }
 
 .curs_img1 {
     width: 72px;
     height: 72px;
-    background: url(../foto/delivery-truck.png) center no-repeat;
+    background: url(../../assets/delivery-truck.png) center no-repeat;
 }
 
 .curs_img2 {
     width: 72px;
     height: 72px;
-    background: url(../foto/secure.png) center no-repeat;
+    background: url(../../assets/secure.png) center no-repeat;
 }
 
 .curs_img3 {
     width: 72px;
     height: 72px;
-    background: url(../foto/money-bags.png) center no-repeat;
+    background: url(../../assets/money-bags.png) center no-repeat;
 }
 
 .procent {
@@ -110,14 +110,14 @@
     width: 592px;
     height: 448px;
     position: relative;
-    background: url(../foto/2_2.png) center no-repeat;
+    background: url(../../assets/2_2.png) center no-repeat;
 }
 
 .procent_img {
     width: 592px;
     height: 448px;
     transform: translate(0%, 0%);
-    background: url(../foto/2_1.png) center no-repeat;
+    background: url(../../assets/2_1.png) center no-repeat;
 }
 
 @media (max-width: 768px) {

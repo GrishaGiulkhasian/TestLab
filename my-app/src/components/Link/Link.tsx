@@ -1,7 +1,7 @@
 import React from "react";
-import './Silrf.css';
+import './Link.css';
 
-export const Silka: React.FC = () => {
+export const Link: React.FC = () => {
     return(
         <div className="sil">
             © 2021 Лаборатория интернет
@@ -9,4 +9,4 @@ export const Silka: React.FC = () => {
     );
 }
 
-export default Silka;
+export default Link;
